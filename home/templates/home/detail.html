@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  detail
+{% endblock %}
+
+{% block content %}
+  <h3>detial page ....</h3>
+  <p>
+    <a href="{% url 'delete' todo.id %}" class="btn btn-danger"> Delete </a>
+    <a href="{% url 'update' todo.id %}" class="btn btn-info"> Update </a>
+    <h5> {{ todo.title }} </h5>
+    <small> {{ todo.created }} </small>
+    <hr>
+    <h6> body: </h6>
+    <small> {{ todo.body }} </small>
+    <hr>
+    
+  </p>
+{% endblock %}
