@@ -6,20 +6,16 @@
 
 {% block content %}
   {% if request.user.is_authenticated %}  
-    <a href="{% url 'logout' %}"> Logout</a>
+    <a href="{% url 'logout' %}" class='btn btn-danger'> Logout </a>
+    <a href="{% url 'create' %}" class="btn btn-info"> Create Todo </a>
   {% else %}
-    <a href="{% url 'register' %}"> register</a>
-    <a href="{% url 'login' %}"> Login</a>
+    <a href="{% url 'register' %}" class='btn btn-info'> register </a>
+    <a href="{% url 'login' %}" class='btn btn-info'> Login </a>
   {% endif %}
 
 
+<p> You are logged in as user:  {{ request.user }} </p>
 
-{% if request.user.is_authenticated %}
-  <h2> hello </h2>
-  {% else %}
-  <h2> bye </h2>
-{% endif %}
-<p> {{ request.user }} </p>
 
   <div class="card">
     {% for todo in all %}
@@ -30,13 +26,3 @@
 
   </div>
 {% endblock %}
-
-
-{% comment %} 
-<form>
-  <input type='text'>
-  <input type='password'>
-  <input type='submit'>
-
-
-</form> {% endcomment %}
